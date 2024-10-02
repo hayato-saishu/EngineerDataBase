@@ -12,7 +12,7 @@ import java.util.Map;
 @Mapper
 public interface EngineerMapper {
 
-    List<Engineer> searchEngineers(Map<String, Object> params);
+    List<EngineerListDto> searchEngineers(Map<String, Object> params);
 
     EngineerDetailDto selectEngineerDetailById(int id);
 }
