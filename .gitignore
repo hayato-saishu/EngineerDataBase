@@ -6,6 +6,7 @@ demo/.gradle/
 
 # Build directories
 demo/build/
+demo/src/main/resources/static
 react-app/build/
 
 # Node modules
