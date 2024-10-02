@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.EngineerDetailDto;
 import com.example.demo.dto.EngineerListDto;
-import com.example.demo.model.Engineer;
 import com.example.demo.service.EngineerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +27,8 @@ public class EngineerController {
     }
 
     @GetMapping("/engineer/detail/{id}")
-    public Engineer getEngineerById(@PathVariable int id) {
-        return service.getEngineerById(id);
+    public EngineerDetailDto getEngineerById(@PathVariable int id) {
+        return service.getEngineerDetailById(id);
     }
 
 }

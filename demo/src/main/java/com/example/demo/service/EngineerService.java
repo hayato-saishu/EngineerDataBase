@@ -3,7 +3,6 @@ package com.example.demo.service;
 import com.example.demo.dto.EngineerDetailDto;
 import com.example.demo.dto.EngineerListDto;
 import com.example.demo.mapper.EngineerMapper;
-import com.example.demo.model.Engineer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
