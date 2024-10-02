@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/EngineerDataBaseDB
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+mybatis:
+  mapper-locations: classpath:com/example/demo/mapper/*.xml
+  type-aliases-package: com.example.demo.model,com.example.demo.dto
+
+docker:
+    compose:
+      file: "demo/docker-compose.yml"
+
+# その他の設定
+server:
+  port: 8080

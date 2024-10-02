@@ -1,0 +1,12 @@
+# IntelliJ IDEA project files
+.idea/
+
+# Gradle files
+demo/.gradle/
+
+# Build directories
+demo/build/
+react-app/build/
+
+# Node modules
+react-app/node_modules/

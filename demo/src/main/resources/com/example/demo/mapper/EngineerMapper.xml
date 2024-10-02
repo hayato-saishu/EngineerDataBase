@@ -1,0 +1,39 @@
+<mapper namespace="com.example.mapper.EngineerMapper">
+    <select id="selectEngineerDetailById" parameterType="int" resultType="com.example.dto.EngineerDetailDto">
+        SELECT
+        e.name AS engineerName,
+        e.age AS engineerAge,
+        e.address AS engineerAddress,
+        e.phone_number AS engineerPhoneNumber,
+        s.language AS skillLanguage,
+        es.years_of_experience AS skillYearsOfExperience,
+        pr.project_name AS projectName,
+        ep.start_date AS projectStartDate,
+        ep.end_date AS projectEndDate
+        FROM engineers e
+        INNER JOIN engineers_skills_sets es
+        ON e.id = es.engineer_id
+        INNER JOIN skills s
+        ON s.id = es.skill_id
+        INNER JOIN engineers_projects_participation ep
+        ON ep.engineer_id = e.id
+        INNER JOIN projects pr
+        ON pr.id = ep.project_id
+        WHERE e.id = #{id}
+    </select>
+
+    <select id="searchEngineers" parameterType="map" resultType="com.example.demo.dto.EngineerListDto">
+        SELECT * FROM engineers
+        <where>
+            <if test="name != null and name != ''">
+                AND name = #{name}
+            </if>
+            <if test="experience != null">
+                AND years_of_experience = #{yearsOfExperience}
+            </if>
+            <if test="language != null and language != ''">
+                AND language = #{language}
+            </if>
+        </where>
+    </select>
+</mapper>
