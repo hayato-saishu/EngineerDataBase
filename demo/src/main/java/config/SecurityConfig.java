@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -20,12 +21,15 @@ public class SecurityConfig {
         http
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))  // CORS設定を追加
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/login", "/static/**").permitAll()  // 静的ファイルとログインページを許可
+                        .requestMatchers("/", "/index", "/loginPage", "/static/**").permitAll()  // 静的ファイルとログインページを許可
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/login")
+                        .loginPage("/loginPage")
+                        .defaultSuccessUrl("/engineer/search", true)
                         .permitAll()
+                )
+                .logout(LogoutConfigurer::permitAll
                 );
         return http.build();
     }
