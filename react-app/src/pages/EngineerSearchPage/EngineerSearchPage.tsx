@@ -31,10 +31,10 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Age</TableCell>
-              <TableCell>Language</TableCell>
-              <TableCell>Years of Experience</TableCell>
+              <TableCell>名前</TableCell>
+              <TableCell>年齢</TableCell>
+              <TableCell>言語</TableCell>
+              <TableCell>経験年数</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

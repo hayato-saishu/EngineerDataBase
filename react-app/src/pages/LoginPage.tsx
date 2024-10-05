@@ -30,10 +30,12 @@ const LoginPage: React.FC = () => {
         })
         .then((response) => {
           const count = response.data.count;
+          console.log(response.data);
           if (count === 0) {
             alert("ユーザーが見つかりません");
+            return;
           }
-          navigate("engineer/search");
+          navigate("/engineer/search");
         });
     } catch (error) {
       console.error("Login failed", error);

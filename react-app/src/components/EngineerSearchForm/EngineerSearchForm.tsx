@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container, Grid } from '@mui/material';
+import axios from 'axios';
 
 const SearchForm: React.FC = () => {
     const [name, setName] = useState('');
@@ -12,6 +13,25 @@ const SearchForm: React.FC = () => {
             return;
         }
         // API呼び出しロジック
+        axios.get("http://localhost:8080/api/engineer/search", {
+            headers: {
+                "Content-Type": "application/json"
+            },
+            params: {
+                name: name,
+                language: language,
+                yearsOfExperience: yearsOfExperience
+            }
+        })
+        .then((response) => {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const engineer = response.data;
+            console.log(response.data);
+        })
+        .catch((error) => {
+            alert("api取得に失敗しました" + error)
+            return;
+        })
     };
 
     return (
@@ -19,7 +39,7 @@ const SearchForm: React.FC = () => {
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                     <TextField
-                        label="Name"
+                        label="名前"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         fullWidth
@@ -27,7 +47,7 @@ const SearchForm: React.FC = () => {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <TextField
-                        label="Language"
+                        label="言語"
                         value={language}
                         onChange={(e) => setLanguage(e.target.value)}
                         fullWidth
@@ -35,7 +55,7 @@ const SearchForm: React.FC = () => {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <TextField
-                        label="Years of Experience"
+                        label="経験年数"
                         type="number"
                         value={yearsOfExperience}
                         onChange={(e) => setYearsOfExperience(Number(e.target.value))}

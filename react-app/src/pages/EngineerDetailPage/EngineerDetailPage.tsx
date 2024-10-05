@@ -17,7 +17,7 @@ const EngineerDetail: React.FC = () => {
 
     useEffect(() => {
         // API呼び出しロジック
-        axios.get('http://localhost:8080/engineer/detail', {
+        axios.get('http://localhost:8080/engineer/detail/{id}', {
             headers: {
                 "Content-Type": 'application/json'
             },
@@ -38,9 +38,9 @@ const EngineerDetail: React.FC = () => {
     return (
         <Container>
             <Typography variant="h4">{engineer.name}</Typography>
-            <Typography variant="body1">Age: {engineer.age}</Typography>
-            <Typography variant="body1">Address: {engineer.address}</Typography>
-            <Typography variant="body1">Phone Number: {engineer.phoneNumber}</Typography>
+            <Typography variant="body1">年齢: {engineer.age}</Typography>
+            <Typography variant="body1">住所: {engineer.address}</Typography>
+            <Typography variant="body1">電話番号: {engineer.phoneNumber}</Typography>
         </Container>
     );
 };
