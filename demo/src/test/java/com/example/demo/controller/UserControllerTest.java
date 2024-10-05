@@ -31,7 +31,7 @@ public class UserControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
+    @WithMockUser(username = "user")
     public void testGetUserById() throws Exception {
         User user = new User();
         user.setId(1);
@@ -48,7 +48,7 @@ public class UserControllerTest {
     }
 
     @Test
-    @WithMockUser(username = "user", roles = {"USER"})
+    @WithMockUser(username = "user")
     public void testLogin() throws Exception {
         User user = new User();
         user.setEmailAddress("test@example.com");
