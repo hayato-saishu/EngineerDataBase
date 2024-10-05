@@ -1,4 +1,7 @@
 spring:
+  resources:
+    static-locations: classpath:/static/
+
   datasource:
     url: jdbc:postgresql://localhost:5432/EngineerDataBaseDB
     username: user
@@ -8,6 +11,10 @@ spring:
   docker:
     compose:
       file: demo/docker-compose.yml
+
+logging:
+  level:
+    org.springframework.security: DEBUG
 
 mybatis:
   mapper-locations: classpath:com/example/demo/mapper/*.xml
