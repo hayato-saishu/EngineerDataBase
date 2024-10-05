@@ -20,7 +20,7 @@ public class EngineerController {
     public ResponseEntity<List<EngineerListDto>> searchEngineers(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String language,
-            @RequestParam(required = false) int yearsOfExperience) {
+            @RequestParam(required = false) Integer yearsOfExperience) {
 
         List<EngineerListDto> engineers = service.searchEngineers(name, language, yearsOfExperience);
         return ResponseEntity.ok(engineers);

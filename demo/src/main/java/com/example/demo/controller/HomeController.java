@@ -9,10 +9,10 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home() {
-        return "forward:/loginPage";
+        return "forward:/index.html";
     }
 
-    @GetMapping("/loginPage")
+    @GetMapping("/login")
     public String loginPage() {
         return "forward:/index.html"; // Reactのエントリーポイントにフォワード
     }
