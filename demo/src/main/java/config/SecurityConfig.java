@@ -22,10 +22,13 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))  // CORS設定を追加
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/login", "/static/**", "api/user/login").permitAll()  // 静的ファイルとログインページを許可
+                        .requestMatchers("/", "/login", "/static/**").permitAll()  // 静的ファイルとログインページを許可
                         .anyRequest().authenticated()
                 )
-                .formLogin(AbstractHttpConfigurer::disable
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/login", true)
+                        .permitAll()
                 )
                 .logout(logout -> logout
                         .logoutSuccessUrl("/login")

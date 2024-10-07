@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,12 @@ public class UserController {
     }
 
     @GetMapping("/user/login")
-    public User login(@RequestParam String emailAddress, @RequestParam String password) {
-        return service.login(emailAddress, password);
+    public User login(HttpSession session, @RequestParam String emailAddress, @RequestParam String password) {
+        User user = service.login(emailAddress, password);
+        if(user == null) {
+            return null;
+        }
+        session.setAttribute("user", user);
+        return user;
     }
 }

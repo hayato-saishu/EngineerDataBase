@@ -36,7 +36,7 @@ const SearchForm: React.FC = () => {
 
     return (
         <Container>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} mt={4}>
                 <Grid item xs={12} sm={4}>
                     <TextField
                         label="名前"
@@ -64,7 +64,7 @@ const SearchForm: React.FC = () => {
                 </Grid>
                 <Grid item xs={12}>
                     <Button variant="contained" color="primary" onClick={handleSearch}>
-                        Search
+                        検索
                     </Button>
                 </Grid>
             </Grid>

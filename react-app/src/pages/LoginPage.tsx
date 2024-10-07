@@ -29,9 +29,9 @@ const LoginPage: React.FC = () => {
           },
         })
         .then((response) => {
-          const count = response.data.count;
+          const user = response.data;
           console.log(response.data);
-          if (count === 0) {
+          if (user === null || user === "") {
             alert("ユーザーが見つかりません");
             return;
           }

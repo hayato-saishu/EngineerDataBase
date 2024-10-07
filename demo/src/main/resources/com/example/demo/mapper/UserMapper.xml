@@ -6,6 +6,7 @@
 <mapper namespace="com.example.demo.mapper.UserMapper">
     <select id="login" parameterType="map" resultType="com.example.demo.model.User">
         SELECT
+        id,
         email_address AS emailAddress,
         password
         FROM users
