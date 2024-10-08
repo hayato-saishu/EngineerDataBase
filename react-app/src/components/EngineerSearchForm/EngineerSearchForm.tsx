@@ -37,8 +37,8 @@ const SearchForm: React.FC<SearchFormProps> = ({ setResults }) => {
         },
       })
       .then((response) => {
-        setResults(response.data);
-        console.log(response.data);
+        const engineers: Engineer[] = response.data;
+        engineers.length === 0 ? alert("エンジニアが見つかりませんでした。") : setResults(engineers);
       })
       .catch((error) => {
         alert("api取得に失敗しました" + error);
