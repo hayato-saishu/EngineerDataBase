@@ -18,7 +18,7 @@ public class EngineerService {
     @Autowired
     EngineerMapper mapper;
 
-    public List<EngineerListDto> searchEngineers(String name, String language, int yearsOfExperience) {
+    public List<EngineerListDto> searchEngineers(String name, String language, Integer yearsOfExperience) {
         Map<String, Object> params = new HashMap<>();
         params.put("name", name);
         params.put("language", language);
