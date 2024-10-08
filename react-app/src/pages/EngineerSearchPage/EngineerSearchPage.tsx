@@ -9,7 +9,7 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import EngineerSearchForm from "../../components/EngineerSearchForm/EngineerSearchForm";
+import SearchForm from "../../components/EngineerSearchForm/EngineerSearchForm";
 
 interface Engineer {
   id: number;
@@ -19,12 +19,12 @@ interface Engineer {
   yearsOfExperience: number;
 }
 
-const SearchResults: React.FC = () => {
-  const [results, setResults] = useState<Engineer[]>([]); 
+const EngineerSearchPage: React.FC = () => {
+  const [results, setResults] = useState<Engineer[]>([]);
 
   return (
     <>
-      <EngineerSearchForm setResults={setResults} />
+      <SearchForm setResults={setResults} /> {/* setResultsプロップを渡す */}
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -55,4 +55,4 @@ const SearchResults: React.FC = () => {
   );
 };
 
-export default SearchResults;
+export default EngineerSearchPage;
