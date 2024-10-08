@@ -34,7 +34,7 @@
                 AND name = #{name}
             </if>
             <if test="experience != null">
-                AND years_of_experience = #{yearsOfExperience}
+                AND years_of_experience > #{yearsOfExperience}
             </if>
             <if test="language != null and language != ''">
                 AND language = #{language}
