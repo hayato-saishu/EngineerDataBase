@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { TextField, Button, Container, Grid } from '@mui/material';
 import axios from 'axios';
 
-const SearchForm: React.FC = () => {
+interface SearchFormProps {
+    setResults: (results: any) => void;
+}
+
+const SearchForm: React.FC<SearchFormProps> = () => {
     const [name, setName] = useState('');
     const [language, setLanguage] = useState('');
     const [yearsOfExperience, setYearsOfExperience] = useState<number | ''>('');

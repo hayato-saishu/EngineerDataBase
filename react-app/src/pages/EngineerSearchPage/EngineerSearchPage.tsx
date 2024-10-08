@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Table,
@@ -19,14 +19,12 @@ interface Engineer {
   yearsOfExperience: number;
 }
 
-interface SearchResultsProps {
-  results: Engineer[];
-}
+const SearchResults: React.FC = () => {
+  const [results, setResults] = useState<Engineer[]>([]); 
 
-const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
   return (
     <>
-      <EngineerSearchForm />
+      <EngineerSearchForm setResults={setResults} />
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
